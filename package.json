@@ -8,10 +8,10 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.47.4",
+    "@slidev/cli": "^0.48.3",
     "@slidev/theme-apple-basic": "^0.25.0",
     "@slidev/theme-bricks": "^0.25.0",
-    "@slidev/theme-default": "latest",
+    "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "latest",
     "@slidev/theme-shibainu": "^0.25.0",
     "slidev-theme-antfu-vite-conf-2023": "^0.1.9",

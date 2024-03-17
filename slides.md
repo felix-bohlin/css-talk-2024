@@ -1,6 +1,5 @@
 ---
 theme: default
-background: https://imgflip.com/s/meme/Grandma-Finds-The-Internet.jpg
 class: text-center
 highlighter: shiki
 lineNumbers: false
@@ -8,77 +7,96 @@ drawings:
   persist: false
 defaults:
   foo: true
-transition: slide-left
-title: What's so special about CSS this time?
+transition: fade-out
+title: CSS one-liners that will BLOW YOUR MIND
 mdc: true
 fonts:
-  sans: Exo 2
+  sans: Fira Code
   serif: Gamja Flower
   mono: Fira Code
+background: exploding-head.gif
 ---
+# CSS one-liners that will BLOW YOUR MIND
 
-# WHAT'S SO SPECIAL ABOUT CSS THIS TIME?
-
-<p class="text-2xl">What are the CSS ENGINEERS hiding from me!?</p>
+<p class="text-2xl">You won't believe number 9!!</p>
 
 
 <style>
   h1  {
-    font-weight: 900;
+  font-weight: 900;
   text-wrap: balance;
+  text-shadow: 2px 2px 4px black;
 }
 </style>
 
-<!--
-While the ridiculous title is in good fun it’s a bit serious as well. ​
-
-  The way we talk about CSS as this weird and hacky language encourages people to not take it seriously.​
-
-  Even if you’re not that person, maybe CSS just isn’t for you – and that’s fine! ​
-
-  The reason why I’m having this talk in the first place is to get you all excited about, and make sure you’re not missing out on some of the most exciting features that, in my opition, has ever been introduced to CSS.​
-
-  You might wonder: what’s so special with CSS now? ​
-
-  What’s changed?​
--->
-
 ---
-transition: fade-out
+layout: two-cols
 ---
 
-# What is Slidev?
+# Frontend 2014
+```css
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
----
-layout: default
----
-
-# Table of contents
-
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
+.box {
+  -moz-border-radius: 1em; // Firefox
+  -webkit-border-radius: 1em; // Safari
+  border-radius: 1em;
+}
 ```
 
-<Toc maxDepth="1"></Toc>
+::right::
+
+
+# Frontend 2024
+---
+---
+# Kill it with fire
+
 
 ---
-transition: slide-up
-level: 2
+---
+# Impress everyone at work
+
+
+---
+---
+
+# I avoid it if I can
+
+
+---
+---
+
+# Ok I guess
+
+
+## When do I use `grid` or `flex`?
+
+<div v-click class="grid place-items-center">
+```mermaid
+graph TD
+C{Do I need control over my children?}
+C -->|Yes| D[Grid]
+C -->|No| E[Flex]
+```
+</div>
+
+---
+---
+
+# I enjoy it!
+
+---
+---
+
+# LET ME TELL YOU ABOUT `subgrid`!
+
+---
 ---
 
 # Navigation
@@ -326,83 +344,8 @@ $$
 
 [Learn more](https://sli.dev/guide/syntax#latex)
 
----
 
-# Diagrams
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
 
 ---
 src: ./pages/multiple-entries.md
