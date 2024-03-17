@@ -34,6 +34,8 @@ layout: two-cols
 ---
 
 # Frontend 2014
+- holding up fingers to the screen to see if items align
+- this:
 ```css
 .clearfix:after {
   content: "";
