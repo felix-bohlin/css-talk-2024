@@ -1,6 +1,6 @@
-# slidev-theme-felix-theme
+# slidev-theme-generic
 
-[![NPM version](https://img.shields.io/npm/v/slidev-theme-felix-theme?color=3AB9D4&label=)](https://www.npmjs.com/package/slidev-theme-felix-theme)
+[![NPM version](https://img.shields.io/npm/v/slidev-theme-generic?color=3AB9D4&label=)](https://www.npmjs.com/package/slidev-theme-generic)
 
 A (...) theme for [Slidev](https://github.com/slidevjs/slidev).
 
@@ -24,7 +24,7 @@ A (...) theme for [Slidev](https://github.com/slidevjs/slidev).
 Add the following frontmatter to your `slides.md`. Start Slidev then it will prompt you to install the theme automatically.
 
 <pre><code>---
-theme: <b>felix-theme</b>
+theme: <b>generic</b>
 ---</code></pre>
 
 Learn more about [how to use a theme](https://sli.dev/themes/use).
