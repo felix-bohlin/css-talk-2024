@@ -1,104 +1,104 @@
 ---
-theme: seriph
-background: https://source.unsplash.com/collection/94734566/1920x1080
+theme: default
 class: text-center
 highlighter: shiki
 lineNumbers: false
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
 drawings:
   persist: false
 defaults:
   foo: true
-transition: slide-left
-title: Welcome to Slidev
-mdc: true
----
-
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
 transition: fade-out
+title: CSS one-liners that will BLOW YOUR MIND
+mdc: true
+fonts:
+  sans: Fira Code
+  serif: Gamja Flower
+  mono: Fira Code
+background: exploding-head.gif
 ---
+# CSS one-liners that will BLOW YOUR MIND
 
-# What is Slidev?
+<p class="text-2xl">You won't believe number 9!!</p>
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
 
 <style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  h1  {
+  font-weight: 900;
+  text-wrap: balance;
+  text-shadow: 2px 2px 4px black;
 }
 </style>
 
-<!--
-Here is another comment.
--->
-
 ---
-layout: default
+layout: two-cols
 ---
 
-# Table of contents
+# Frontend 2014
+- holding up fingers to the screen to see if items align
+- this:
+```css
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
+
+.box {
+  -moz-border-radius: 1em; // Firefox
+  -webkit-border-radius: 1em; // Safari
+  border-radius: 1em;
+}
 ```
 
-<Toc maxDepth="1"></Toc>
+::right::
+
+
+# Frontend 2024
+---
+---
+# Kill it with fire
+
 
 ---
-transition: slide-up
-level: 2
+---
+# Impress everyone at work
+
+
+---
+---
+
+# I avoid it if I can
+
+
+---
+---
+
+# Ok I guess
+
+
+## When do I use `grid` or `flex`?
+
+<div v-click class="grid place-items-center">
+```mermaid
+graph TD
+C{Do I need control over my children?}
+C -->|Yes| D[Grid]
+C -->|No| E[Flex]
+```
+</div>
+
+---
+---
+
+# I enjoy it!
+
+---
+---
+
+# LET ME TELL YOU ABOUT `subgrid`!
+
+---
 ---
 
 # Navigation
@@ -346,83 +346,8 @@ $$
 
 [Learn more](https://sli.dev/guide/syntax#latex)
 
----
 
-# Diagrams
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
 
 ---
 src: ./pages/multiple-entries.md
