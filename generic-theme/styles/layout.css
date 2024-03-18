@@ -5,7 +5,7 @@
 }
 
 html, body, #app, #page-root {
-  @apply: font-sans;
+  @apply font-sans;
 }
 
 .slidev-layout.cover,
@@ -30,6 +30,10 @@ html, body, #app, #page-root {
 
 .slidev-layout {
   h1 {
-    @apply: font-black;
+    @apply font-black;
+  }
+
+  &.two-columns {
+    @apply gap-2;
   }
 }
