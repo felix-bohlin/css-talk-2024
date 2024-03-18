@@ -1,5 +1,5 @@
 ---
-theme: ./felix-theme
+theme: generic
 class: text-center
 highlighter: shiki
 lineNumbers: false
@@ -15,27 +15,27 @@ fonts:
   serif: Gamja Flower
   mono: Fira Code
 background: exploding-head.gif
+layout: cover
 ---
-
-# CSS one-liners that will BLOW YOUR MIND
+<h1 class="text-balance"><span class="font-black [text-shadow:_2px_2px_4px_black]">Frontend CSS one-liners that will</span> <span class="bg-gradient-to-r from-red-500 via-indigo-500 to-red-500 inline-block text-transparent bg-clip-text">BLOW YOUR MIND</span></h1>
 
 <p class="text-2xl">You won't believe number 9!!</p>
 
-<style>
-  h1  {
-  font-weight: 900;
-  text-wrap: balance;
-  text-shadow: 2px 2px 4px black;
-}
-</style>
 
 ---
 layout: two-cols
 ---
+<h1>Frontend <span class="text-indigo-500">2014</span></h1>
 
-# Frontend 2014
+
+<v-click>
 
 - holding up fingers to the screen to see if items align
+
+</v-click>
+
+<v-click>
+
 - this:
 
 ```css
@@ -45,6 +45,9 @@ layout: two-cols
   clear: both;
 }
 ```
+</v-click>
+
+<v-click>
 
 - and this:
 
@@ -56,12 +59,36 @@ layout: two-cols
   -o-border-radius: 1em; // Opera
 }
 ```
+</v-click>
+
 
 ::right::
+<v-click>
 
-# Frontend 2024
+<h1>Frontend <span class="text-indigo-500">2024</span></h1>
+</v-click>
+
+<v-clicks>
+
+- hopefully not that
+- browser harmony
+- components `>` cascade
+- higher quality component libraries
+
+</v-clicks>
 
 ---
+layout: quote
+---
+<div class="grid gap-2 align-center">We're expected to put less emphasis on how we <span> <span class="text-indigo-500 py-1">build</span> components</span>and more on how we <span><span class="text-indigo-500 py-1">place</span> components </span></div>
+
+
+---
+layout: cover
+class: text-center bg-gradient-to-r from-black to-indigo-900
+---
+
+# Layouts
 
 ---
 
@@ -69,17 +96,14 @@ layout: two-cols
 
 ---
 
----
 
 # Impress everyone at work
 
----
 
 ---
 
 # I avoid it if I can
 
----
 
 ---
 
@@ -96,28 +120,17 @@ C -->|No| E[Flex]
 ```
 </div>
 
----
-
----
 
 # I enjoy it!
 
----
-
----
 
 # LET ME TELL YOU ABOUT `subgrid`!
 
----
-
----
 
 
 ---
-
 layout: image-right
 image: https://source.unsplash.com/collection/94734566/1920x1080
-
 ---
 
 # Code
