@@ -17,7 +17,7 @@ fonts:
 background: exploding-head.gif
 layout: cover
 ---
-<h1 class="text-balance"><span class="font-black [text-shadow:_2px_2px_4px_black]">Frontend CSS one-liners that will</span> <span class="bg-gradient-to-r from-red-500 via-indigo-500 to-red-500 inline-block text-transparent bg-clip-text">BLOW YOUR MIND</span></h1>
+<h1 class="text-balance"><span class="font-black [text-shadow:_2px_2px_4px_black]">CSS one-liners that will</span> <span class="bg-gradient-to-r from-red-500 via-indigo-500 to-red-500 inline-block text-transparent bg-clip-text">BLOW YOUR MIND</span></h1>
 
 <p class="text-2xl">You won't believe number 9!!</p>
 
