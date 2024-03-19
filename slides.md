@@ -99,11 +99,11 @@ transition: fade-out
 <div>
 <h1 class="inline-block view-transition-title">Opinions</h1>
 
-1. Kill it with fire
+1. KILL IT WITH FIRE
 2. I avoid it if I can
 3. Ok I guess
 4. I enjoy it!
-5. Let me tell you about `subgrid`!
+5. LET ME TELL YOU ABOUT `subgrid`!
 </div>
 
 <div class="grid place-items-center h-full">
@@ -117,6 +117,7 @@ transition: fade-out
 layout: image-right
 image: hell.png
 ---
+
 # KILL IT WITH FIRE
 
 <v-click>
@@ -134,14 +135,88 @@ place-items: center;
 
 ---
 
+# I avoid it if I can
+Then avoid this too:
 
+<div class="grid grid-cols-2">
+<div>
+```html {all|1,6|2,4|3|all}{at:1}
+<div class="grid">
+  <div class="item">
+    <div class="where-you-actually-can-do-stuff">1</div>
+  </div>
+  <!-- ... -->
+</div>
+```
+```css {all|1-3|5,6|8-10|all}{at:1}
+.grid {
+  display: flex;
+  margin: -1rem;
+
+  .item {
+    padding: 1rem;
+
+    .where-you-actually-can-do-stuff {
+      /* ... */
+    }
+  }
+}
+```
+</div>
+
+<UseGap/>
+</div>
 
 
 ---
 
 # I avoid it if I can
+`gap` will save your life!
 
+<div class="grid grid-cols-2">
+<div>
+<div class="relative">
+<v-click hide>
+```html
+<div class="grid">
+  <div class="item">
+    <div class="where-you-actually-can-do-stuff">1</div>
+  </div>
+  <!-- ... -->
+</div>
+```
+</v-click>
 
+<v-after>
+<div class="absolute top-0 w-full">
+```html
+<div class="grid">
+  <div class="item">1</div>
+  <!-- ... -->
+</div>
+```
+</div>
+</v-after>
+</div>
+
+<v-click="3">
+```css
+.grid {
+  display: flex;
+  gap: 1rem;
+
+  .item {
+    /* ... */
+  }
+}
+```
+</v-click>
+</div>
+
+<v-click>
+<UseGap/>
+</v-click>
+</div>
 ---
 
 # Ok I guess
@@ -157,6 +232,9 @@ C -->|No| E[Flex]
 ```
 </div>
 
+
+```css
+
 ---
 
 # I enjoy it!
@@ -164,5 +242,3 @@ C -->|No| E[Flex]
 ---
 
 # LET ME TELL YOU ABOUT `subgrid`!
-
-
