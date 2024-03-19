@@ -117,7 +117,7 @@ transition: fade-out
 layout: image-right
 image: hell.png
 ---
-# Kill it with fire
+# KILL IT WITH FIRE
 
 <v-click>
 
