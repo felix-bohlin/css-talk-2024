@@ -23,6 +23,9 @@ dependencies:
   '@slidev/theme-shibainu':
     specifier: ^0.25.0
     version: 0.25.0
+  chart.js:
+    specifier: ^4.4.2
+    version: 4.4.2
   slidev-theme-antfu-vite-conf-2023:
     specifier: ^0.1.9
     version: 0.1.9
@@ -38,6 +41,9 @@ dependencies:
   vue:
     specifier: ^3.4.15
     version: 3.4.15(typescript@5.4.2)
+  vue-chartjs:
+    specifier: ^5.3.0
+    version: 5.3.0(chart.js@4.4.2)(vue@3.4.15)
 
 packages:
 
@@ -712,6 +718,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+    dev: false
+
+  /@kurkle/color@0.3.2:
+    resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
     dev: false
 
   /@leichtgewicht/ip-codec@2.0.4:
@@ -2141,6 +2151,13 @@ packages:
 
   /character-entities@2.0.2:
     resolution: {integrity: sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ==}
+    dev: false
+
+  /chart.js@4.4.2:
+    resolution: {integrity: sha512-6GD7iKwFpP5kbSD4MeRRRlTnQvxfQREy36uEtm1hzHzcOqwWx0YEHuspuoNlslu+nciLIB7fjjsHkUv/FzFcOg==}
+    engines: {pnpm: '>=8'}
+    dependencies:
+      '@kurkle/color': 0.3.2
     dev: false
 
   /chokidar@3.6.0:
@@ -5523,6 +5540,16 @@ packages:
         optional: true
     dependencies:
       vite: 5.1.6
+    dev: false
+
+  /vue-chartjs@5.3.0(chart.js@4.4.2)(vue@3.4.15):
+    resolution: {integrity: sha512-8XqX0JU8vFZ+WA2/knz4z3ThClduni2Nm0BMe2u0mXgTfd9pXrmJ07QBI+WAij5P/aPmPMX54HCE1seWL37ZdQ==}
+    peerDependencies:
+      chart.js: ^4.1.1
+      vue: ^3.0.0-0 || ^2.7.0
+    dependencies:
+      chart.js: 4.4.2
+      vue: 3.4.15(typescript@5.4.2)
     dev: false
 
   /vue-demi@0.14.7(vue@3.4.21):
