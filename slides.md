@@ -176,7 +176,7 @@ Then avoid this too:
 
 # I avoid it if I can
 
-`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code!
+`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code and stay closer to <span class="text-indigo-500 font-black">standards</span>!
 
 <div class="grid grid-cols-2 gap-4">
   <div class="relative">
@@ -232,7 +232,7 @@ Then avoid this too:
 
 <div v-click="+3" class="absolute top-0 w-full h-full">
 ```jsx {all|0|all}{at:4}
-// Very joyful
+// Joyful MUI
 <Box display="flex" gap={2}>
   {items.map((item) => (
     <MyComponent key={item.joy} />
