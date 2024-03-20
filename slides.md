@@ -197,7 +197,7 @@ transition: view-transition
 </div>
 
 ---
-transition: none
+transition: view-transition
 ---
 
 # I avoid it if I can
@@ -205,8 +205,8 @@ transition: none
 `gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code!
 
 <div class="grid grid-cols-2 gap-4">
-  <div class="relative">
-
+  <div>
+````md magic-move {at:1}
 ```html
 <div class="grid">
   <div class="item">
@@ -215,7 +215,15 @@ transition: none
   <!-- ... -->
 </div>
 ```
+```html
+<div class="grid">
+  <div class="my-component">1</div>
+  <!-- ... -->
+</div>
+```
+````
 
+````md magic-move {at:1}
 ```css
 .grid {
   display: flex;
@@ -231,27 +239,6 @@ transition: none
   }
 }
 ```
-
-</div>
-</div>
-
----
-transition: none
----
-
-# I avoid it if I can
-
-`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code!
-
-<div class="grid grid-cols-2 gap-4">
-  <div>
-```html
-<div class="grid">
-  <div class="my-component">1</div>
-  <!-- ... -->
-</div>
-```
-
 ```css
 .grid {
   display: flex;
@@ -262,19 +249,22 @@ transition: none
   }
 }
 ```
-
-  </div>
-  <div class="relative">
-    <ul v-click.hide="'+1'">
-      <li>Set your desired <code>gap</code></li>
-      <li>Done!</li>
-    </ul>
-
-   <div v-click="+1" class="absolute top-0 w-full">
-      <WithGap/>
-  </div>
-  </div>
+````
 </div>
+
+<v-click at="+1">
+<div>
+  <WithGap/>
+
+  <ul class="mt-2">
+    <li>Set your desired <code>gap</code></li>
+    <li>Done!</li>
+  </ul>
+  </div>
+</v-click>
+</div>
+
+
 
 ---
 transition: slide-left
@@ -282,7 +272,7 @@ transition: slide-left
 
 # I avoid it if I can
 
-`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code <span v-mark="0">and</span> stay closer to <span class="text-indigo-500 font-black">standards</span>!
+`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code <span v-mark="1">and stay closer to <span class="text-indigo-500 font-black">standards</span></span>!
 
 <div class="grid grid-cols-2 gap-4">
   <div class="relative">
@@ -299,7 +289,7 @@ transition: slide-left
 
 ```jsx {0|all}{at:1}
 // Joy-sparking MUI example
-<Box display="flex" gap={2}>
+<Box sx={{ display: "flex", gap: 2 }}>
   {items.map((item) => (
     <MyComponent key={item.joy} />
   ))}
@@ -353,6 +343,10 @@ Control my children?
 ---
 
 # LET ME TELL YOU ABOUT `subgrid`!
+
+```
+
+```
 
 ```
 
