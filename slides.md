@@ -87,18 +87,18 @@ layout: quote
 ---
 layout: cover
 class: text-center bg-gradient-to-r from-black to-indigo-900
-transition: view-transition
+transition: slide-up
 ---
 
-# Layouts {.inline-block.view-transition-title}
+# Layouts
 
 ---
-transition: fade-out
+transition: slide-left
 ---
 
 <div class="grid grid-cols-[1fr_2fr] h-full">
 <div>
-<h1 class="inline-block view-transition-title">Opinions</h1>
+<h1>Opinions</h1>
 
 1. KILL IT WITH FIRE
 2. I avoid it if I can
@@ -113,14 +113,21 @@ transition: fade-out
 </div>
 
 ---
-layout: image-right
-image: hell.png
+layout: center
+transition: view-transition
 ---
 
-# KILL IT WITH FIRE
+# KILL IT WITH FIRE {.inline-block.view-transition-title2}
+
+---
+layout: image-right
+image: hell.png
+transition: view-transition
+---
+
+# KILL IT WITH FIRE {.inline-block.view-transition-title2}
 
 <v-click>
-
 <p class="mb-4">The easiest way to <span class="text-indigo-500 font-black">center a div!</span> <br>Become popular at work!</p>
 
 ```css
@@ -133,16 +140,23 @@ place-items: center;
 </v-click>
 
 ---
-transition: none
+layout: center
+transition: view-transition
 ---
 
-# I avoid it if I can
+# I avoid it if I can {.inline-block.view-transition-title3}
 
-Then avoid this too:
+---
+transition: view-transition
+---
+
+# I avoid it if I can {.inline-block.view-transition-title3}
+
+... and I get it!
 
 <div class="grid grid-cols-2">
 <div>
-```html {all|1,6|2,4|3|all}{at:1}
+```html {all|1,6|1,6|2,4|all}{at:1}
 <div class="grid">
   <div class="item">
     <div class="my-component">1</div>
@@ -151,7 +165,7 @@ Then avoid this too:
 </div>
 ```
 
-```css {all|1-3,12|5-7,11|9-11|all}{at:1}
+```css {all|1-3,12|1-3,12|5-7,11|all}{at:1}
 .grid {
   display: flex;
   margin: -2rem;
@@ -168,20 +182,31 @@ Then avoid this too:
 ```
 
 </div>
-
-<WithoutGap/>
+<div>
+  <WithoutGap/>
+  <ul class="pl-4">
+    <li v-click="+1">Add minus margin corresponding to the <span class="text-indigo-500 font-black">intended</span> <code>gap</code> size on your <code>.grid</code> to offset item padding</li>
+    <li v-click="+2">Make sure that margin doesn't break the rest of your layout</li>
+    <li v-click="+3">
+      Add padding to each item corresponding to <span class="text-indigo-500 font-black">half the gap</span> you intend to
+      have
+    </li>
+    <li v-click="+4">I get it if you found this a little confusing, good.</li>
+  </ul>
+</div>
 </div>
 
+---
+transition: none
 ---
 
 # I avoid it if I can
 
-`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code and stay closer to <span class="text-indigo-500 font-black">standards</span>!
+`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code!
 
 <div class="grid grid-cols-2 gap-4">
   <div class="relative">
 
-<v-click hide>
 ```html
 <div class="grid">
   <div class="item">
@@ -207,9 +232,19 @@ Then avoid this too:
 }
 ```
 
-</v-click>
+</div>
+</div>
 
-<div v-after v-click.hide="+3" class="absolute top-0 w-full h-full">
+---
+transition: none
+---
+
+# I avoid it if I can
+
+`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code!
+
+<div class="grid grid-cols-2 gap-4">
+  <div>
 ```html
 <div class="grid">
   <div class="my-component">1</div>
@@ -228,19 +263,31 @@ Then avoid this too:
 }
 ```
 
+  </div>
+  <div class="relative">
+    <ul v-click.hide="'+1'">
+      <li>Set your desired <code>gap</code></li>
+      <li>Done!</li>
+    </ul>
+
+   <div v-click="+1" class="absolute top-0 w-full">
+      <WithGap/>
+  </div>
+  </div>
 </div>
 
-<div v-click="+3" class="absolute top-0 w-full h-full">
-```jsx {all|0|all}{at:4}
-// Joyful MUI
-<Box display="flex" gap={2}>
-  {items.map((item) => (
-    <MyComponent key={item.joy} />
-  ))}
-</Box>
-```
-```jsx {0|all|all}{at:4}
-// MUI docs
+---
+transition: slide-left
+---
+
+# I avoid it if I can
+
+`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code <span v-mark="0">and</span> stay closer to <span class="text-indigo-500 font-black">standards</span>!
+
+<div class="grid grid-cols-2 gap-4">
+  <div class="relative">
+```jsx {all|0|all}{at:1}
+// Sad MUI example like it says in the docs
 <Grid container spacing={2}>
   {items.map((item) => (
     <Grid xs={4} key={item.sad}>
@@ -250,23 +297,36 @@ Then avoid this too:
 </Grid>
 ```
 
-</div>
+```jsx {0|all}{at:1}
+// Joy-sparking MUI example
+<Box display="flex" gap={2}>
+  {items.map((item) => (
+    <MyComponent key={item.joy} />
+  ))}
+</Box>
+```
 
   </div>
-  <div class="relative">
-    <v-click>
     <WithGap/>
-    </v-click>
-  </div>
 </div>
 
 ---
+layout: center
+transition: view-transition
+---
 
-# Ok I guess
+# Ok, I guess {.inline-block.view-transition-title4}
 
-## When do I use `grid` or `flex`?
+---
+transition: view-transition
+---
 
-<div v-click class="grid place-items-center">
+# Ok, I guess {.inline-block.view-transition-title4}
+
+When do I use `grid` or `flex`?
+
+<div class="grid grid-cols-2 gap-4">
+<div class="flex w-full aspect-[1.2/1]">
 ```mermaid
 graph TD
 C{Do I need control over my children?}
@@ -274,10 +334,17 @@ C -->|Yes| D[Grid]
 C -->|No| E[Flex]
 ```
 </div>
+hehe
 
-```css
+</div>
 
-```
+---
+transition: none
+---
+
+# Ok, I guess
+
+Control my children?
 
 ---
 
