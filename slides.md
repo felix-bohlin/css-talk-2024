@@ -8,7 +8,7 @@ drawings:
 defaults:
   foo: true
 transition: fade-out
-title: CSS one-liners that will BLOW YOUR MIND
+title: A shallow deep-dive in CSS layouts that will BLOW YOUR MIND
 mdc: true
 fonts:
   sans: system-ui
@@ -18,9 +18,9 @@ background: exploding-head.gif
 layout: cover
 ---
 
-<h1 class="text-balance"><span class="font-black [text-shadow:_2px_2px_4px_black]">CSS one-liners that will</span> <span class="bg-gradient-to-r from-red-500 via-indigo-500 to-red-500 inline-block text-transparent bg-clip-text">BLOW YOUR MIND</span></h1>
+<h1 class="text-balance"><span class="font-black [text-shadow:_2px_2px_4px_black]">A shallow deep-dive in CSS layouts that will</span> <span class="bg-gradient-to-r from-red-500 via-indigo-500 to-red-500 inline-block text-transparent bg-clip-text">BLOW YOUR MIND</span></h1>
 
-<p class="text-2xl">You won't believe number 9!!</p>
+<p class="!leading-light"><span>"Really, you can do that?!"</span> <br> <span text-sm>"I don't believe you."</span> <br> <span class="text-[.5rem]">"I wish I was at the other talk."</span> <br> <span class="text-[.3rem]">"Jeez louise, that lunch didn't sit well with me, AT ALL!"</span></p>
 
 ---
 layout: two-cols
@@ -313,10 +313,13 @@ transition: view-transition
 
 # Ok, I guess {.inline-block.view-transition-title4}
 
-When do I use `grid` or `flex`?
+<span v-if="$clicks <= 0">When do I use `grid` or `flex`?</span>
+<span v-else-if="$clicks < 5">I will use `grid` or `flex` when I want...</span>
+<span v-else>I will use `grid` or `flex` when I...</span>
 
-<div class="grid grid-cols-2 gap-4">
-<div class="flex w-full aspect-[1.2/1]">
+<div class="grid grid-cols-2 gap-8 transition-all ease-out" :class="$clicks > 0 && 'pt-8'">
+<div>
+<div class="flex w-full aspect-[1.2/1] transition-all ease-out duration-500" :class="$clicks <= 0 ? 'translate-[0]': 'translate-x-[260px] translate-y-[-400px]'">
 ```mermaid
 graph TD
 C{Do I need control over my children?}
@@ -324,7 +327,28 @@ C -->|Yes| D[Grid]
 C -->|No| E[Flex]
 ```
 </div>
-hehe
+<div class="transition-all ease-out duration-700 -translate-y-[348px]">
+<v-clicks>
+
+##### A grid! {.text-right.mr-7.mt-1}
+##### Equally sized, repeating children  {.text-right.mr-7.mt-1}
+##### Advanced layouts {.text-right.mr-7.mt-1}
+</v-clicks>
+</div>
+</div>
+
+<div>
+<v-click>
+<h5 class="-ml-4.5 mt-1">Things in a line</h5>
+</v-click>
+<v-click>
+<h5 class="-ml-4.5 mt-1">Just don't care what my children looks like</h5>
+</v-click>
+<v-click>
+<h5 class="-ml-4.5 mt-1">Just want a gap between my children</h5>
+</v-click>
+</div>
+
 
 </div>
 
