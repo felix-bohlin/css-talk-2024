@@ -17,16 +17,16 @@ fonts:
 background: exploding-head.gif
 layout: cover
 ---
+
 <h1 class="text-balance"><span class="font-black [text-shadow:_2px_2px_4px_black]">CSS one-liners that will</span> <span class="bg-gradient-to-r from-red-500 via-indigo-500 to-red-500 inline-block text-transparent bg-clip-text">BLOW YOUR MIND</span></h1>
 
 <p class="text-2xl">You won't believe number 9!!</p>
 
-
 ---
 layout: two-cols
 ---
-<h1>Frontend <span class="text-indigo-500">2014</span></h1>
 
+<h1>Frontend <span class="text-indigo-500">2014</span></h1>
 
 <v-click>
 
@@ -45,6 +45,7 @@ layout: two-cols
   clear: both;
 }
 ```
+
 </v-click>
 
 <v-click>
@@ -59,8 +60,8 @@ layout: two-cols
   -o-border-radius: 1em; // Opera
 }
 ```
-</v-click>
 
+</v-click>
 
 ::right::
 <v-click>
@@ -80,8 +81,8 @@ layout: two-cols
 ---
 layout: quote
 ---
-<div class="grid gap-2 align-center">We're expected to put less emphasis on how we <span> <span class="text-indigo-500 py-1">build</span> components</span>and more on how we <span><span class="text-indigo-500 py-1">place</span> components </span></div>
 
+<div class="grid gap-2 align-center">We're expected to put less emphasis on how we <span> <span class="text-indigo-500 py-1">build</span> components</span>and more on how we <span><span class="text-indigo-500 py-1">place</span> components </span></div>
 
 ---
 layout: cover
@@ -111,8 +112,6 @@ transition: fade-out
 </div>
 </div>
 
-
-
 ---
 layout: image-right
 image: hell.png
@@ -134,8 +133,11 @@ place-items: center;
 </v-click>
 
 ---
+transition: none
+---
 
 # I avoid it if I can
+
 Then avoid this too:
 
 <div class="grid grid-cols-2">
@@ -143,80 +145,121 @@ Then avoid this too:
 ```html {all|1,6|2,4|3|all}{at:1}
 <div class="grid">
   <div class="item">
-    <div class="where-you-actually-can-do-stuff">1</div>
+    <div class="my-component">1</div>
   </div>
   <!-- ... -->
 </div>
 ```
-```css {all|1-3|5,6|8-10|all}{at:1}
+
+```css {all|1-3,12|5-7,11|9-11|all}{at:1}
 .grid {
   display: flex;
-  margin: -1rem;
+  margin: -2rem;
 
   .item {
+    flex: 1;
     padding: 1rem;
 
-    .where-you-actually-can-do-stuff {
+    .my-component {
       /* ... */
     }
   }
 }
 ```
+
 </div>
 
-<UseGap/>
+<WithoutGap/>
 </div>
-
 
 ---
 
 # I avoid it if I can
-`gap` will save your life!
 
-<div class="grid grid-cols-2">
-<div>
-<div class="relative">
+`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code!
+
+<div class="grid grid-cols-2 gap-4">
+  <div class="relative">
+
 <v-click hide>
 ```html
 <div class="grid">
   <div class="item">
-    <div class="where-you-actually-can-do-stuff">1</div>
+    <div class="my-component">1</div>
   </div>
   <!-- ... -->
 </div>
 ```
+
+```css
+.grid {
+  display: flex;
+  margin: -2rem;
+
+  .item {
+    flex: 1;
+    padding: 1rem;
+
+    .my-component {
+      /* ... */
+    }
+  }
+}
+```
+
 </v-click>
 
-<v-after>
-<div class="absolute top-0 w-full">
+<div v-after v-click.hide="+3" class="absolute top-0 w-full h-full">
 ```html
 <div class="grid">
-  <div class="item">1</div>
+  <div class="my-component">1</div>
   <!-- ... -->
 </div>
 ```
-</div>
-</v-after>
-</div>
 
-<v-click="3">
 ```css
 .grid {
   display: flex;
   gap: 1rem;
 
-  .item {
+  .my-component {
     /* ... */
   }
 }
 ```
-</v-click>
+
 </div>
 
-<v-click>
-<UseGap/>
-</v-click>
+<div v-click="+3" class="absolute top-0 w-full h-full">
+```jsx {all|0|all}{at:4}
+// Very joyful
+<Box display="flex" gap={2}>
+  {items.map((item) => (
+    <MyComponent key={item.joy} />
+  ))}
+</Box>
+```
+```jsx {0|all|all}{at:4}
+// MUI docs
+<Grid container spacing={2}>
+  {items.map((item) => (
+    <Grid xs={4} key={item.sad}>
+      <MyComponent />
+    </Grid>
+  ))}
+</Grid>
+```
+
 </div>
+
+  </div>
+  <div class="relative">
+    <v-click>
+    <WithGap/>
+    </v-click>
+  </div>
+</div>
+
 ---
 
 # Ok I guess
@@ -232,8 +275,9 @@ C -->|No| E[Flex]
 ```
 </div>
 
-
 ```css
+
+```
 
 ---
 
@@ -242,3 +286,7 @@ C -->|No| E[Flex]
 ---
 
 # LET ME TELL YOU ABOUT `subgrid`!
+
+```
+
+```
