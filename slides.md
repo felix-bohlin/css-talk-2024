@@ -299,14 +299,12 @@ transition: view-transition
 # Ok, I guess {.inline-block.view-transition-title4}
 
 ---
-transition: view-transition
+transition: slide-left
 ---
 
 # Ok, I guess {.inline-block.view-transition-title4}
 
-<span v-if="$clicks <= 0">When do I use `grid` or `flex`?</span>
-<span v-else-if="$clicks < 5">Use `grid`...</span>
-<span v-else>Use `flex`...</span>
+When do I use <span v-mark="{at:1}"><code>grid</code></span> or <span v-mark="{at:5}"><code>flex</code></span>?
 
 <div class="grid grid-cols-2 gap-8 transition-all ease-out" :class="$clicks > 0 && 'pt-8'">
 <div>
@@ -321,38 +319,76 @@ C -->|No| E[Flex]
 <div class="transition-all ease-out duration-700 -translate-y-[200px]">
 <v-clicks>
 
-<IconListItem align="right" text="Grid!"><carbon-grid /> </IconListItem>
-<IconListItem align="right" text="Stack my children"><carbon-grid /> </IconListItem>
-<IconListItem align="right" text="Avoid media queries"><carbon-grid /> </IconListItem>
-<IconListItem align="right" text="Advanced layouts"><carbon-grid /> </IconListItem>
+<IconListItem align="right" text="Grid"><carbon-grid /></IconListItem>
+<IconListItem align="right" text="Stacking"><carbon-grid /></IconListItem>
+<IconListItem align="right" text="Avoid media queries"><carbon-grid /></IconListItem>
+<IconListItem align="right" text="Advanced layouts"><carbon-grid /></IconListItem>
 </v-clicks>
 </div>
 </div>
 
 <div class="transition-all ease-out duration-700 translate-y-[148px]">
 <v-click>
-<IconListItem text="Row of children"><carbon-events/> </IconListItem>
+<IconListItem text="Row"><carbon-events/></IconListItem>
 </v-click>
 <v-click>
-<IconListItem text="Don't care what my children looks like"><carbon-events/> </IconListItem>
+<IconListItem text="Don't care what my children look like"><carbon-events/></IconListItem>
 </v-click>
 </div>
 
 
 </div>
+
+---
+
+# I enjoy it!
+
+Let's replace media queries with nifty one-liners!
+
+```css {all|0}{at: 1}
+grid-template-columns: 1fr;
+
+@media (width > var(--breakpoint-md)) {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (width > var(--breakpoint-lg)) {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+```
+
+```tsx {0|all}{at: 1}
+<Box sx={{
+  display: "grid",
+  gridTemplateColumns: {
+    xs: '1fr',
+    md: 'repeat(2, 1fr)',
+    lg: 'repeat(3, 1fr)',
+  },
+}}>
+  {fields.map((item) => item)}
+</Box>
+```
 
 
 ---
 transition: none
 ---
 
-# Ok, I guess
-
-Control my children?
-
----
-
 # I enjoy it!
+Replace media queries with nifty one-liners
+
+<div class="grid gap-2">
+<Suspense>
+  <BoxGrid/>
+</Suspense>
+
+<v-click>
+<SparksJoy class="absolute top-10 right-20 !justify-end flex items-center"/>
+</v-click>
+</div>
+
 
 ---
 
