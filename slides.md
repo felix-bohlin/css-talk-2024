@@ -343,17 +343,22 @@ C -->|No| E[Flex]
 
 # I enjoy it!
 
-Let's replace media queries with nifty one-liners!
+Let's replace media queries (or container queries) with nifty one-liners!
 
+<div class="grid grid-cols-2 gap2">
 ```css {all|0}{at: 1}
-grid-template-columns: 1fr;
+.wrapper {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
 
-@media (width > var(--breakpoint-md)) {
-  grid-template-columns: 1fr 1fr;
-}
+  @media (width > var(--breakpoint-md)) {
+    grid-template-columns: 1fr 1fr;
+  }
 
-@media (width > var(--breakpoint-lg)) {
-  grid-template-columns: 1fr 1fr 1fr;
+  @media (width > var(--breakpoint-lg)) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 ```
@@ -361,6 +366,7 @@ grid-template-columns: 1fr;
 ```tsx {0|all}{at: 1}
 <Box sx={{
   display: "grid",
+  gap: 1rem,
   gridTemplateColumns: {
     xs: '1fr',
     md: 'repeat(2, 1fr)',
@@ -370,6 +376,7 @@ grid-template-columns: 1fr;
   {fields.map((item) => item)}
 </Box>
 ```
+</div>
 
 
 ---
@@ -384,7 +391,7 @@ Replace media queries with nifty one-liners
   <BoxGrid/>
 </Suspense>
 
-<v-click>
+<v-click at="+2">
 <SparksJoy class="absolute top-10 right-20 !justify-end flex items-center"/>
 </v-click>
 </div>
