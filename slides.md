@@ -96,20 +96,11 @@ transition: slide-up
 transition: slide-left
 ---
 
-<div class="grid grid-cols-[1fr_2fr] h-full">
-<div>
-<h1>Opinions</h1>
+<h1>Your thoughts</h1>
 
-1. KILL IT WITH FIRE
-2. I avoid it if I can
-3. Ok I guess
-4. I enjoy it!
-5. LET ME TELL YOU ABOUT `subgrid`!
-</div>
 
-<div class="grid place-items-center h-full">
+<div class="grid place-items-center">
 <Chart />
-</div>
 </div>
 
 ---
@@ -314,8 +305,8 @@ transition: view-transition
 # Ok, I guess {.inline-block.view-transition-title4}
 
 <span v-if="$clicks <= 0">When do I use `grid` or `flex`?</span>
-<span v-else-if="$clicks < 5">Use `grid` when I want...</span>
-<span v-else>Use `flex` when I...</span>
+<span v-else-if="$clicks < 5">Use `grid`...</span>
+<span v-else>Use `flex`...</span>
 
 <div class="grid grid-cols-2 gap-8 transition-all ease-out" :class="$clicks > 0 && 'pt-8'">
 <div>
@@ -330,8 +321,8 @@ C -->|No| E[Flex]
 <div class="transition-all ease-out duration-700 -translate-y-[200px]">
 <v-clicks>
 
-<IconListItem align="right" text="A grid!"><carbon-grid /> </IconListItem>
-<IconListItem align="right" text="Equally sized, repeating children"><carbon-grid /> </IconListItem>
+<IconListItem align="right" text="Grid!"><carbon-grid /> </IconListItem>
+<IconListItem align="right" text="Stack my children"><carbon-grid /> </IconListItem>
 <IconListItem align="right" text="Avoid media queries"><carbon-grid /> </IconListItem>
 <IconListItem align="right" text="Advanced layouts"><carbon-grid /> </IconListItem>
 </v-clicks>
@@ -340,13 +331,10 @@ C -->|No| E[Flex]
 
 <div class="transition-all ease-out duration-700 translate-y-[148px]">
 <v-click>
-<IconListItem text="Want things in a line"><carbon-events/> </IconListItem>
+<IconListItem text="Row of children"><carbon-events/> </IconListItem>
 </v-click>
 <v-click>
 <IconListItem text="Don't care what my children looks like"><carbon-events/> </IconListItem>
-</v-click>
-<v-click>
-<IconListItem text="Want a gap between my children"><carbon-events/> </IconListItem>
 </v-click>
 </div>
 
