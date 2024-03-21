@@ -23,10 +23,33 @@ layout: cover
 <p class="!leading-light"><span>"Really, you can do that?!"</span> <br> <span text-sm>"I don't believe you."</span> <br> <span class="text-[.5rem]">"I wish I was at the other talk."</span> <br> <span class="text-[.3rem]">"Jeez louise, that lunch didn't sit well with me, AT ALL!"</span></p>
 
 ---
+layout: image-right
+image: me.jpeg
+transition: view-transition
+---
+
+# About me
+<p><span class="view-transition-title">Frontend</span> developer</p>
+
+<IconText text="Currently at Coor"><fluent:laptop-24-regular /></IconText>
+<IconText text="Wife, son & two fluffy cats"><fluent:heart-24-regular /></IconText>
+<IconText text="Gullmarsplan & Skuggorna Bakom Oss"><fluent:music-note-2--24-regular /></IconText>
+<v-click>
+<img src="1860.jpg" class="max-w-[75%] mt-4" />
+</v-click>
+
+---
+transition: view-transition
+layout: center
+---
+
+# Frontend {.view-transition-title}
+
+---
 layout: two-cols
 ---
 
-<h1>Frontend <span class="text-indigo-500">2014</span></h1>
+<h1><span class="view-transition-title">Frontend</span> <span class="text-indigo-500">2014</span></h1>
 
 <v-click>
 
@@ -71,7 +94,7 @@ layout: two-cols
 
 <v-clicks>
 
-- hopefully not that
+- hopefully not that anymore
 - browser harmony
 - components `>` cascade
 - higher quality component libraries
@@ -91,6 +114,25 @@ transition: slide-up
 ---
 
 # Layouts
+
+---
+transition: slide-up
+---
+# What this talk is
+A shallow deep-dive in CSS layouts that will BLOW YOUR MIND
+
+<div class="mt-12"></div>
+
+<v-clicks>
+
+- I want to show what's possible with CSS at different levels of complexity
+- "CSS is better than X" is beside the point
+</v-clicks>
+
+<v-click>
+<SparksJoy text="Spark joy!" class="!justify-start mt-4" />
+</v-click>
+
 
 ---
 transition: slide-left
@@ -113,7 +155,7 @@ transition: view-transition
 ---
 layout: image-right
 image: hell.png
-transition: view-transition
+transition: slide-left
 ---
 
 # KILL IT WITH FIRE {.inline-block.view-transition-title2}
@@ -175,17 +217,20 @@ transition: view-transition
 </div>
 <div>
   <WithoutGap/>
-  <ul class="pl-4">
-    <li v-click="+1">Add minus margin corresponding to the <span class="text-indigo-500 font-black">intended</span> <code>gap</code> size on your <code>.grid</code> to offset item padding</li>
-    <li v-click="+2">Make sure that margin doesn't break the rest of your layout</li>
-    <li v-click="+3">
-      Add padding to each item corresponding to <span class="text-indigo-500 font-black">half the gap</span> you intend to
-      have
-    </li>
-    <li v-click="+4">I get it if you found this a little confusing, good.</li>
-  </ul>
 </div>
 </div>
+
+<!--
+
+[click] Add minus margin corresponding to the intended gap size on your .grid to offset item padding
+
+[click] Make sure that margin doesn't break the rest of your layout
+
+[click] Add padding to each item corresponding to half the gap you intend to have
+
+[click] I get it if you found this a little confusing, it is.
+
+-->
 
 ---
 transition: view-transition
@@ -319,20 +364,20 @@ C -->|No| E[Flex]
 <div class="transition-all ease-out duration-700 -translate-y-[200px]">
 <v-clicks>
 
-<IconListItem align="right" text="Grid"><carbon-grid /></IconListItem>
-<IconListItem align="right" text="Stacking"><carbon-grid /></IconListItem>
-<IconListItem align="right" text="Avoid media queries"><carbon-grid /></IconListItem>
-<IconListItem align="right" text="Advanced layouts"><carbon-grid /></IconListItem>
+<IconText align="right" text="Grid"><fluent:grid-24-regular /></IconText>
+<IconText align="right" text="Stacking"><fluent:grid-24-regular /></IconText>
+<IconText align="right" text="Avoid media queries"><fluent:grid-24-regular /></IconText>
+<IconText align="right" text="Advanced layouts"><fluent:grid-24-regular /></IconText>
 </v-clicks>
 </div>
 </div>
 
 <div class="transition-all ease-out duration-700 translate-y-[148px]">
 <v-click>
-<IconListItem text="Row"><carbon-events/></IconListItem>
+<IconText class="-ml-4.5" text="Row"><fluent:people-community-24-regular/></IconText>
 </v-click>
 <v-click>
-<IconListItem text="Don't care what my children look like"><carbon-events/></IconListItem>
+<IconText class="-ml-4.5" text="Don't care what my children look like"><fluent:people-community-24-regular/></IconText>
 </v-click>
 </div>
 
@@ -400,11 +445,45 @@ Replace media queries with nifty one-liners
 ---
 
 # LET ME TELL YOU ABOUT `subgrid`!
+Good ol' React prop drilling
 
+
+```jsx
+<GrandParent lastName={lastName} />
+  /* ... */
+  <Parent lastName={lastName} />
+    /* ... */
+    <Child lastName={lastName} />
 ```
 
+---
+---
+# LET ME TELL YOU ABOUT `subgrid`!
+
+<div class="grid grid-cols-2 gap-2">
+```html
+<div class="grandparent">
+  <div class="parent">
+    <div class="child">
+      <!-- ... -->
+    </div>
+  </div>
+</div>
 ```
 
-```
+```css
+.grandparent {
+  display: grid;
+  grid-template-columns: 1fr;
 
+  .parent {
+    display: grid;
+    grid-template-columns: subgrid;
+
+    .child {
+      /* ... */
+    }
+  }
+}
 ```
+</div>

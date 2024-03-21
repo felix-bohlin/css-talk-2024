@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <h5 :class="align === 'right' ? 'text-right mr-7' : '-ml-4.5 mt-1'" class="mt-1">
+  <p :class="align === 'right' && 'text-right mr-7'" class="!my-2">
     <span :class="align === 'right' && 'justify-end'" class="flex items-center gap-1">
       <span v-if="align !== 'right'" class="opacity-50 text-sm">
         <slot />
@@ -18,5 +18,5 @@ defineProps<{
         <slot />
       </span>
     </span>
-  </h5>
+  </p>
 </template>
