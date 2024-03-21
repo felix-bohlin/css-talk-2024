@@ -314,12 +314,12 @@ transition: view-transition
 # Ok, I guess {.inline-block.view-transition-title4}
 
 <span v-if="$clicks <= 0">When do I use `grid` or `flex`?</span>
-<span v-else-if="$clicks < 5">I will use `grid` or `flex` when I want...</span>
-<span v-else>I will use `grid` or `flex` when I...</span>
+<span v-else-if="$clicks < 5">Use `grid` when I want...</span>
+<span v-else>Use `flex` when I...</span>
 
 <div class="grid grid-cols-2 gap-8 transition-all ease-out" :class="$clicks > 0 && 'pt-8'">
 <div>
-<div class="flex w-full aspect-[1.2/1] transition-all ease-out duration-500" :class="$clicks <= 0 ? 'translate-[0]': 'translate-x-[260px] translate-y-[-400px]'">
+<div class="flex w-full aspect-[1.2/1] transition-all ease-out duration-500" :class="$clicks <= 0 ? 'translate-[0]': 'translate-x-[260px] translate-y-[-250px]'">
 ```mermaid
 graph TD
 C{Do I need control over my children?}
@@ -327,30 +327,32 @@ C -->|Yes| D[Grid]
 C -->|No| E[Flex]
 ```
 </div>
-<div class="transition-all ease-out duration-700 -translate-y-[348px]">
+<div class="transition-all ease-out duration-700 -translate-y-[200px]">
 <v-clicks>
 
-##### A grid! {.text-right.mr-7.mt-1}
-##### Equally sized, repeating children  {.text-right.mr-7.mt-1}
-##### Advanced layouts {.text-right.mr-7.mt-1}
+<IconListItem align="right" text="A grid!"><carbon-grid /> </IconListItem>
+<IconListItem align="right" text="Equally sized, repeating children"><carbon-grid /> </IconListItem>
+<IconListItem align="right" text="Avoid media queries"><carbon-grid /> </IconListItem>
+<IconListItem align="right" text="Advanced layouts"><carbon-grid /> </IconListItem>
 </v-clicks>
 </div>
 </div>
 
-<div>
+<div class="transition-all ease-out duration-700 translate-y-[148px]">
 <v-click>
-<h5 class="-ml-4.5 mt-1">Things in a line</h5>
+<IconListItem text="Want things in a line"><carbon-events/> </IconListItem>
 </v-click>
 <v-click>
-<h5 class="-ml-4.5 mt-1">Just don't care what my children looks like</h5>
+<IconListItem text="Don't care what my children looks like"><carbon-events/> </IconListItem>
 </v-click>
 <v-click>
-<h5 class="-ml-4.5 mt-1">Just want a gap between my children</h5>
+<IconListItem text="Want a gap between my children"><carbon-events/> </IconListItem>
 </v-click>
 </div>
 
 
 </div>
+
 
 ---
 transition: none
