@@ -208,6 +208,15 @@ layout: center
 <v-click>
 <div></div>
 </v-click>
+
+<!--
+These boxes are a great reason why I think people try to avoid CSS. HOW HARD CAN IT BE to put a couple of items in a row with a little spacing
+
+In the olden days, doing layouts were half the reason you used something like Bootstrap or Foundation because under the hood this wasn't just three inconspicuous boxes.
+
+[click] Let's see why this is how it is and how to make your lives simpler!
+-->
+
 ---
 transition: fade-out
 ---
@@ -218,7 +227,7 @@ transition: fade-out
 
 <div class="grid grid-cols-2">
 <div>
-```html {all|1,6|1,6|2,4|all}{at:1}
+```html {all|1,6|2,4|all}{at:1}
 <div class="grid">
   <div class="item">
     <div class="my-component">1</div>
@@ -227,7 +236,7 @@ transition: fade-out
 </div>
 ```
 
-```css {all|1-3,12|1-3,12|5-7,11|all}{at:1}
+```css {all|1-3,12|5-7,11|all}{at:1}
 .grid {
   display: flex;
   margin: -2rem;
@@ -250,15 +259,15 @@ transition: fade-out
 </div>
 
 <!--
-In the olden days, doing layouts were half the reason you used something like Bootstrap or Foundation.
+This is what you had to do to get some boxes with some spacing!
 
 [click] Add minus margin corresponding to the intended gap size on your .grid to offset item padding
 
-[click] Make sure that margin doesn't break the rest of your layout
+Make sure that margin doesn't break the rest of your layout
 
 [click] Add padding to each item corresponding to half the gap you intend to have
 
-[click] I get it if you found this a little confusing, it is.
+[click] I get it if you found this a little confusing, it is. IF ONLY there was a way to just say "give me some boxes with some gaps!"
 -->
 
 ---
@@ -329,7 +338,9 @@ transition: view-transition
 </v-click>
 </div>
 
-
+<!--
+It would be quite anti-climactic if there wasn't a way, and I hope it can get you to start avoiding CSS a little bit less.
+-->
 
 ---
 transition: slide-left
