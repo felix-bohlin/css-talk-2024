@@ -7,7 +7,7 @@
 <template>
   <div class="px-12 py-1.25">
     <div :class="noBorders ? 'border-none' : 'border-2'" class="wrapper  border-white rounded relative">
-      <span v-if="!noBorders" class="absolute -top-1 right-1 text-sm text-amber-500">.grid</span>
+      <span v-if="!noBorders" class="absolute -top-1 right-1 text-sm text-amber-500">.row</span>
       <div :class="noBorders ? 'border-none' : 'border-2'" class="border-white rounded">
         <div
           class="item border-2 aspect-square grid place-items-center border-white/50 rounded"
@@ -24,7 +24,7 @@
       </div>
       <div :class="noBorders ? 'border-none' : 'border-2'" class="border-white rounded relative">
         <span v-if="!noBorders" class="absolute -top-.5 right-1 text-sm text-amber-500"
-          >.item</span
+          >.col</span
         >
         <div
           class="item border-2 aspect-square grid place-items-center border-white/50 rounded"

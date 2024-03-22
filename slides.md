@@ -210,9 +210,9 @@ layout: center
 </v-click>
 
 <!--
-These boxes are a great reason why I think people try to avoid CSS. HOW HARD CAN IT BE to put a couple of items in a row with a little spacing
+These boxes are a great reason why I think people try to avoid CSS. HOW HARD CAN IT BE to put a couple of items in a row with a little spacing??
 
-In the olden days, doing layouts were half the reason you used something like Bootstrap or Foundation because under the hood this wasn't just three inconspicuous boxes.
+In the olden days, doing layouts was half the reason you used something like Bootstrap or Foundation because achieving this result was more work than you really wanted.
 
 [click] Let's see why this is how it is and how to make your lives simpler!
 -->
@@ -282,15 +282,16 @@ transition: view-transition
   <div>
 ````md magic-move {at:1}
 ```html
-<div class="grid">
-  <div class="item">
+<!-- Bootstrap example -->
+<div class="row">
+  <div class="col">
     <div class="my-component">1</div>
   </div>
   <!-- ... -->
 </div>
 ```
 ```html
-<div class="grid">
+<div class="row">
   <div class="my-component">1</div>
   <!-- ... -->
 </div>
@@ -299,11 +300,11 @@ transition: view-transition
 
 ````md magic-move {at:1}
 ```css
-.grid {
+.row {
   display: flex;
   margin: -2rem;
 
-  .item {
+  .col {
     flex: 1;
     padding: 1rem;
 
@@ -314,7 +315,7 @@ transition: view-transition
 }
 ```
 ```css
-.grid {
+.row {
   display: flex;
   gap: 1rem;
 
@@ -324,6 +325,7 @@ transition: view-transition
 }
 ```
 ````
+
 </div>
 
 <v-click at="+1">
@@ -339,7 +341,15 @@ transition: view-transition
 </div>
 
 <!--
-It would be quite anti-climactic if there wasn't a way, and I hope it can get you to start avoiding CSS a little bit less.
+It would be quite anti-climactic if there wasn't a way and I hope it can get you to start avoiding CSS a little bit less.
+
+Here's an example how Bootstrap does it - and it's the exact same thing! So basically we go from this
+
+[click] to this
+
+Keep using Bootstrap if you want, it's a remarkable tool! I just want to show you how much easier many of the common day-to-day things have gotten.
+
+Whatever you think of Tailwind, I think they've done a terrific job of highlighting how easy something like this is.
 -->
 
 ---
@@ -348,12 +358,12 @@ transition: slide-left
 
 # I avoid it if I can
 
-`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code <span v-mark="1">and stay closer to <span class="text-indigo-500 font-black">standards</span></span>!
+`gap` allows you to <span class="text-indigo-500 font-black">declutter</span> your code!
 
 <div class="grid grid-cols-2 gap-4">
   <div class="relative">
 ```jsx {all|0|all}{at:1}
-// Sad MUI example like it says in the docs
+// MUI - straight from the docs
 <Grid container spacing={2}>
   {items.map((item) => (
     <Grid xs={4} key={item.sad}>
@@ -364,7 +374,7 @@ transition: slide-left
 ```
 
 ```jsx {0|all}{at:1}
-// Joy-sparking MUI example
+// MUI - sparking joy
 <Box sx={{ display: "flex", gap: 2 }}>
   {items.map((item) => (
     <MyComponent key={item.joy} />
@@ -373,8 +383,21 @@ transition: slide-left
 ```
 
   </div>
-    <WithGap/>
+  <div class="grid gap-2">
+    <WithoutGap :class="$slidev.nav.clicks === 1 && 'opacity-50'" />
+    <WithGap class="mx-13" :class="$slidev.nav.clicks === 0 && 'opacity-50'"/>
+  </div>
 </div>
+
+<!--
+Here's a Material UI-example taken straight from their docs since I know a lot of you work in similar CSS-in-JS projects.
+
+In my assignment we've completely omitted layout helpers entirely and gone the vanilla CSS-way where possible.
+
+[click] The developers "stuck with styling" are happy because they get to write as few lines of CSS as possible. As the FE maintainer I'm happy to decrease clutter without veering away from standards.
+
+[click] Both approaches are totally valid and well-documented. Gap however is too important to miss, so even though you want to avoid CSS, maybe don't avoid this one!
+-->
 
 ---
 layout: center
@@ -383,6 +406,15 @@ class: text-center bg-gradient-to-r from-black to-indigo-900
 ---
 
 # Ok, I guess {.inline-block.view-transition-title4}
+
+<!--
+Most of you in the thought CSS was tolerable, which is fun, but there can still be a lot of confusions.
+
+I've asked quite a lot of people (and it would be fun to poll this in the slack channel)
+when they use grid and when they use flex.
+
+Almost everyone replied that they've never gotten into grid and just used flex.  (raise of hands, ask questions).
+-->
 
 ---
 transition: slide-left
@@ -405,7 +437,7 @@ C -->|No| E[Flex]
 <div class="transition-all ease-out duration-700 -translate-y-[200px]">
 <v-clicks>
 
-<IconText align="right" text="Grid"><fluent:grid-24-regular /></IconText>
+<IconText align="right" text="(two-dimensional) Grids"><fluent:grid-24-regular /></IconText>
 <IconText align="right" text="Stacking"><fluent:grid-24-regular /></IconText>
 <IconText align="right" text="Avoid media queries"><fluent:grid-24-regular /></IconText>
 <IconText align="right" text="Advanced layouts"><fluent:grid-24-regular /></IconText>
@@ -415,7 +447,7 @@ C -->|No| E[Flex]
 
 <div class="transition-all ease-out duration-700 translate-y-[148px]">
 <v-click>
-<IconText class="-ml-4.5" text="Row"><fluent:people-community-24-regular/></IconText>
+<IconText class="-ml-4.5" text="Rows"><fluent:people-community-24-regular/></IconText>
 </v-click>
 <v-click>
 <IconText class="-ml-4.5" text="Don't care what my children look like"><fluent:people-community-24-regular/></IconText>
@@ -425,6 +457,22 @@ C -->|No| E[Flex]
 
 </div>
 
+<!--
+[click] Two-dimensional grids - grid is great when you need to control your layouts in two dimensions
+
+[click] Stacking - instead of flex-direction: column - just use grid! Grid is vertical by default. It's perfect when you have stacked items and want equal gap between them.
+
+Another type of stacking could be page layouts (header, main, footer)
+
+[click] Grid is great when you want to avoid writing media queries. There's a lot built into grid that flex just can't do that lets you avoid some media queries (more about that later!)
+
+[click] Advanced layouts - product cards you find in web stores are a great examples where grid is super useful! When the cards get resized, some elements need to change position completely. Thanks to `grid-area` you can achieve this without a single line of Javascript - helping you to declutter your code significantly.
+
+[click] Rows are the classic flex example, and it's great for that!
+
+[click] Especially when you don't care about the size of your children. Grid is particular about each child fitting into it's grid (doh). Flex meanwhile is just happy with anything, so you can end up with a row of small, large, microscopic children, if that's what you want!
+-->
+
 ---
 class: text-center bg-gradient-to-r from-black to-indigo-900
 layout: center
@@ -433,17 +481,25 @@ transition: view-transition
 
 # I enjoy it! {.inline-block.view-transition-title5}
 
+<!--
+Penultimate level!
+
+Originally I was going to name this talk "CSS one-liners" something something and just talk about that, but then I was made aware that people, at best, tolerate CSS.
+
+HOWEVER, I managed to save one one-liner from the garbage pile!
+-->
+
 ---
 transition: view-transition
 ---
 
 # I enjoy it! {.inline-block.view-transition-title5}
 
-Let's replace media queries (or container queries) with nifty one-liners!
+Let's replace media/container queries with nifty one-liners!
 
 <div class="grid grid-cols-2 gap2">
 ```css {all|0}{at: 1}
-.wrapper {
+.grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
@@ -473,6 +529,16 @@ Let's replace media queries (or container queries) with nifty one-liners!
 </Box>
 ```
 </div>
+
+<div class="gap-4 rounded p-2 border-2 border-zinc-500/50 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] overflow-auto resize">
+  <input type="text" placeholder="First name" class="p-2 w-full bg-gray-100 grid place-items-center rounded max-h-[40px] bg-transparent border-1 border-gray-100" />
+  <input type="text" placeholder="Last name" class="p-2 w-full bg-gray-100 grid place-items-center rounded max-h-[40px] bg-transparent border-1 border-gray-100" />
+  <input type="text" placeholder="Email" class="p-2 w-full grid place-items-center rounded max-h-[40px] bg-transparent border-1 border-gray-100" />
+  <select class="p-2 w-full grid place-items-center rounded max-h-[40px] bg-transparent border-1 border-gray-100">
+    <option value="" disabled selected>Choose stuff</option>
+  </select>
+</div>
+
 
 
 ---
@@ -538,3 +604,4 @@ Good ol' React prop drilling
 }
 ```
 </div>
+iv>
