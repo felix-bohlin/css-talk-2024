@@ -38,7 +38,7 @@ transition: view-transition
 # Felix Bohlin
 <p><span class="view-transition-title">Frontend</span> developer, Devotion</p>
 
-<IconText text="Currently at Coor"><fluent:laptop-24-regular /></IconText>r
+<IconText text="Currently at Coor"><fluent:laptop-24-regular /></IconText>
 <IconText text="Wife, son & two fluffy cats"><fluent:heart-24-regular /></IconText>
 <IconText text="Gullmarsplan & Skuggorna Bakom Oss"><fluent:music-note-2--24-regular /></IconText>
 <v-click>
@@ -201,7 +201,7 @@ transition: view-transition
 layout: center
 ---
 
-# I avoid it if I can {.inline-block.text-center.view-transition-title3}
+# I avoid it if I can {.flow-root.text-center.view-transition-title3}
 
 <WithoutGap :noBorders="$slidev.nav.clicks <= 0"/>
 

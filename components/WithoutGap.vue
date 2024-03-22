@@ -1,6 +1,6 @@
 <script setup lang="ts">
   defineProps<{
-    noBorders: boolean
+    noBorders?: boolean
   }>()
 </script>
 
