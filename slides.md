@@ -14,13 +14,20 @@ fonts:
   sans: system-ui
   serif: Gamja Flower
   mono: Fira Code
-background: exploding-head.gif
+background: svt.png
 layout: cover
+---
+
+<!--
+testing
+-->
+---
+layout: cover
+background: exploding-head.gif
 ---
 
 <h1 class="text-balance"><span class="font-black [text-shadow:_2px_2px_4px_black]">A shallow deep-dive in CSS layouts that will</span> <span class="bg-gradient-to-r from-red-500 via-indigo-500 to-red-500 inline-block text-transparent bg-clip-text">BLOW YOUR MIND</span></h1>
 
-<p class="!leading-light"><span>"Really, you can do that?!"</span> <br> <span text-sm>"I don't believe you."</span> <br> <span class="text-[.5rem]">"I wish I was at the other talk."</span> <br> <span class="text-[.3rem]">"Jeez louise, that lunch didn't sit well with me, AT ALL!"</span></p>
 
 ---
 layout: image-right
@@ -28,8 +35,8 @@ image: me.jpeg
 transition: view-transition
 ---
 
-# About me
-<p><span class="view-transition-title">Frontend</span> developer</p>
+# Felix Bohlin
+<p><span class="view-transition-title">Frontend</span> developer, Devotion</p>
 
 <IconText text="Currently at Coor"><fluent:laptop-24-regular /></IconText>
 <IconText text="Wife, son & two fluffy cats"><fluent:heart-24-regular /></IconText>
@@ -45,20 +52,17 @@ layout: center
 
 # Frontend {.view-transition-title}
 
+<!--
+Obviously we're going to talk about frontend, but let's start with going back in time a bit.
+-->
+
 ---
 layout: two-cols
 ---
 
 <h1><span class="view-transition-title">Frontend</span> <span class="text-indigo-500">2014</span></h1>
 
-<v-click>
-
 - holding up fingers to the screen to see if items align
-
-</v-click>
-
-<v-click>
-
 - this:
 
 ```css
@@ -68,10 +72,6 @@ layout: two-cols
   clear: both;
 }
 ```
-
-</v-click>
-
-<v-click>
 
 - and this:
 
@@ -84,22 +84,27 @@ layout: two-cols
 }
 ```
 
-</v-click>
-
 ::right::
 <v-click>
 
 <h1>Frontend <span class="text-indigo-500">2024</span></h1>
-</v-click>
-
-<v-clicks>
 
 - hopefully not that anymore
 - browser harmony
 - components `>` cascade
 - higher quality component libraries
 
-</v-clicks>
+</v-click>
+
+<!--
+The responsibilities of UI developers has changed a lot in the last 10-15 years. Responsive design and mobile first was a cool buzzword! The web environment was very fragmented - browser support for JS and CSS was different wherever you looked.
+
+Remember fixing that thing in Internet Explorer 11 only for it to not work in Internet Explorer 10? All this shaped the frontend role into a highly specialized field. It put a lot of emphasis on finding and coming up with black magic hacks and knowing the intricacies of all the stuff you wanted to use.
+
+[click] That's not everything it was of course, but without that you were lost.
+
+The modern frontend role has shifted away from that, and the expectations on UI developers have as well. Browser vendors are nowadays in-sync with each other and working together to ship features. Web apps with Javscript frameworks alongside these endlessly configurable and well-documented component libraries makes for a fairly time-efficient way to ship features nowadays. No more weird clearfix or aspect ratio hacks, no more self-maintained components
+-->
 
 ---
 layout: quote
@@ -107,17 +112,14 @@ layout: quote
 
 <div class="grid gap-2 align-center">We're expected to put less emphasis on how we <span> <span class="text-indigo-500 py-1">build</span> components</span>and more on how we <span><span class="text-indigo-500 py-1">place</span> components </span></div>
 
----
-layout: cover
-class: text-center bg-gradient-to-r from-black to-indigo-900
-transition: slide-up
----
-
-# Layouts
+<!--
+We are at that stage where we're expected to put less emphasis on how we build components and more on how we place them
+-->
 
 ---
 transition: slide-up
 ---
+
 # What this talk is
 A shallow deep-dive in CSS layouts that will BLOW YOUR MIND
 
@@ -125,14 +127,22 @@ A shallow deep-dive in CSS layouts that will BLOW YOUR MIND
 
 <v-clicks>
 
-- I want to show what's possible with CSS at different levels of complexity
 - "CSS is better than X" is beside the point
+- I want to show what's possible with CSS at different levels of complexity
+- Applicable to any environment - vanilla CSS, SASS, Tailwind, Material UI
 </v-clicks>
 
 <v-click>
 <SparksJoy text="Spark joy!" class="!justify-start mt-4" />
 </v-click>
 
+<!--
+[click] Someone recently said to me "why would I write CSS if my current component library already has components that can handle most of my layout needs?"
+
+Good for you!
+
+[click] You can't stay up to date with everything, so I'd like to give you a sneak peek into how you could build a mental model around CSS and a little how I go about things.
+-->
 
 ---
 transition: slide-left
@@ -145,9 +155,11 @@ transition: slide-left
 <Chart />
 </div>
 
+
 ---
 layout: center
 transition: view-transition
+class: text-center bg-gradient-to-r from-black to-indigo-900
 ---
 
 # KILL IT WITH FIRE {.inline-block.view-transition-title2}
@@ -172,18 +184,35 @@ place-items: center;
 
 </v-click>
 
+<!--
+I won't be able to convince you! :D
+-->
+
 ---
 layout: center
 transition: view-transition
+class: text-center bg-gradient-to-r from-black to-indigo-900
 ---
 
 # I avoid it if I can {.inline-block.view-transition-title3}
 
 ---
 transition: view-transition
+layout: center
 ---
 
-# I avoid it if I can {.inline-block.view-transition-title3}
+# I avoid it if I can {.inline-block.text-center.view-transition-title3}
+
+<WithoutGap :noBorders="$slidev.nav.clicks <= 0"/>
+
+<v-click>
+<div></div>
+</v-click>
+---
+transition: fade-out
+---
+
+# I avoid it if I can {.flow-root.view-transition-title3}
 
 ... and I get it!
 
@@ -221,6 +250,7 @@ transition: view-transition
 </div>
 
 <!--
+In the olden days, doing layouts were half the reason you used something like Bootstrap or Foundation.
 
 [click] Add minus margin corresponding to the intended gap size on your .grid to offset item padding
 
@@ -229,7 +259,6 @@ transition: view-transition
 [click] Add padding to each item corresponding to half the gap you intend to have
 
 [click] I get it if you found this a little confusing, it is.
-
 -->
 
 ---
@@ -339,6 +368,7 @@ transition: slide-left
 ---
 layout: center
 transition: view-transition
+class: text-center bg-gradient-to-r from-black to-indigo-900
 ---
 
 # Ok, I guess {.inline-block.view-transition-title4}
@@ -385,8 +415,18 @@ C -->|No| E[Flex]
 </div>
 
 ---
+class: text-center bg-gradient-to-r from-black to-indigo-900
+layout: center
+transition: view-transition
+---
 
-# I enjoy it!
+# I enjoy it! {.inline-block.view-transition-title5}
+
+---
+transition: view-transition
+---
+
+# I enjoy it! {.inline-block.view-transition-title5}
 
 Let's replace media queries (or container queries) with nifty one-liners!
 

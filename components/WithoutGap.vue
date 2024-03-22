@@ -1,23 +1,29 @@
+<script setup lang="ts">
+  defineProps<{
+    noBorders: boolean
+  }>()
+</script>
+
 <template>
   <div class="px-12 py-1.25">
-    <div class="wrapper border-2 border-white rounded relative">
-      <span class="absolute -top-1 right-1 text-sm text-amber-500">.grid</span>
-      <div class="border-2 border-white rounded">
+    <div :class="noBorders ? 'border-none' : 'border-2'" class="wrapper  border-white rounded relative">
+      <span v-if="!noBorders" class="absolute -top-1 right-1 text-sm text-amber-500">.grid</span>
+      <div :class="noBorders ? 'border-none' : 'border-2'" class="border-white rounded">
         <div
           class="item border-2 aspect-square grid place-items-center border-white/50 rounded"
         >
           1
         </div>
       </div>
-      <div class="border-2 border-white rounded">
+      <div :class="noBorders ? 'border-none' : 'border-2'" class="border-white rounded">
         <div
           class="item border-2 aspect-square grid place-items-center border-white/50 rounded"
         >
           2
         </div>
       </div>
-      <div class="border-2 border-white rounded relative">
-        <span class="absolute -top-.5 right-1 text-sm text-amber-500"
+      <div :class="noBorders ? 'border-none' : 'border-2'" class="border-white rounded relative">
+        <span v-if="!noBorders" class="absolute -top-.5 right-1 text-sm text-amber-500"
           >.item</span
         >
         <div
