@@ -3,25 +3,24 @@ import { computed, ref, watchEffect } from 'vue';
 import { codeToHtml } from 'shiki'
 
 const minValue = ref('30')
-const gridTemplateColumns = computed(() => `repeat(auto-fill, minmax(${minValue.value}ch, 1fr))`)
+const gridTemplateColumns = computed(() => `repeat(auto-fit, minmax(${minValue.value}ch, 1fr))`)
 
-const code = computed(() => `<Box sx={{
+const code = computed(() => `form {
   display: grid;
   gap: 1rem;
   grid-template-columns: ${gridTemplateColumns.value};
-}}>
- {fields.map((item) => item)}
-</Box>
+}
 `)
 
+
 let html = await codeToHtml(code.value, {
-  lang: 'tsx',
+  lang: 'css',
   theme: 'dark-plus'
 })
 
 watchEffect(async () => {
   html = await codeToHtml(code.value, {
-    lang: 'tsx',
+    lang: 'css',
     theme: 'dark-plus'
   })
 })
@@ -29,15 +28,15 @@ watchEffect(async () => {
 </script>
 
 <template>
-  <code v-html="html" class="p-2 bg-gray-100" />
+  <code v-html="html" class="!p-2 bg-gray-100 !text-[12px]" />
 
-  <div v-if="$slidev.nav.clicks > 0" class="flex justify-end my-2.5 flex gap-2">
+  <div class="flex justify-end my-2.5 flex gap-2">
 
     <input type="range" v-model="minValue" min="15" max="45" class="accent-indigo-500" />
   </div>
 
 
-  <div v-if="$slidev.nav.clicks > 0" class="wrapper">
+  <div class="wrapper">
     <input type="text" placeholder="First name" class="p-2 w-full bg-gray-100" />
     <input type="text" placeholder="Last name" class="p-2 w-full bg-gray-100" />
     <input type="text" placeholder="Email" class="p-2 w-full" />

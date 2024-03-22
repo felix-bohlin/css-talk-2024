@@ -53,7 +53,7 @@ layout: center
 # Frontend {.view-transition-title}
 
 <!--
-Obviously we're going to talk about frontend, but let's start with going back in time a bit.
+This talk is about CSS and some of the cool things we can do with it today, but let's start by going back in time a bit.
 -->
 
 ---
@@ -113,7 +113,9 @@ layout: quote
 <div class="grid gap-2 align-center">We're expected to put less emphasis on how we <span> <span class="text-indigo-500 py-1">build</span> components</span>and more on how we <span><span class="text-indigo-500 py-1">place</span> components </span></div>
 
 <!--
-We are at that stage where we're expected to put less emphasis on how we build components and more on how we place them
+We are at that stage where we're expected to put less emphasis on how we build components and more on how we place them.
+
+And that will be the focus of this talk today - LAYOUTS.
 -->
 
 ---
@@ -125,11 +127,12 @@ A shallow deep-dive in CSS layouts that will BLOW YOUR MIND
 
 <div class="mt-12"></div>
 
+- I want to show what's possible with CSS at different levels of complexity
+
 <v-clicks>
 
-- "CSS is better than X" is beside the point
-- I want to show what's possible with CSS at different levels of complexity
-- Applicable to any environment - vanilla CSS, SASS, Tailwind, Material UI
+- Applicable to any environment - vanilla CSS, SASS, Tailwind, Material UI etc
+- "CSS is better than X" is not what I'm going for
 </v-clicks>
 
 <v-click>
@@ -137,11 +140,15 @@ A shallow deep-dive in CSS layouts that will BLOW YOUR MIND
 </v-click>
 
 <!--
-[click] Someone recently said to me "why would I write CSS if my current component library already has components that can handle most of my layout needs?"
+You can't stay up to date with everything, so I'd like to give you a sneak peek into how you could build a mental model around CSS and a little how I go about things.
 
-Good for you!
+[click] I want to be clear that all the tips today are applicable in any project environment.
 
-[click] You can't stay up to date with everything, so I'd like to give you a sneak peek into how you could build a mental model around CSS and a little how I go about things.
+[click] Someone here at Regent acutally told me the other day: "why would I write CSS if my current component library already has components that can handle most of my layout needs?"
+
+Good point. Perhaps you shouldn't! Perhaps you should! I'm not necessarily here to sell you a better solution. All I hope to do is inspire and hopefully...
+
+[click] spark joy! CSS!!!!!
 -->
 
 ---
@@ -164,6 +171,12 @@ class: text-center bg-gradient-to-r from-black to-indigo-900
 
 # KILL IT WITH FIRE {.inline-block.view-transition-title2}
 
+<!--
+Well, some of the respondents just had zero feelings for CSS, so there's nothing I can say to change your mind.
+
+However...
+-->
+
 ---
 layout: image-right
 image: hell.png
@@ -176,8 +189,10 @@ transition: slide-left
 <p class="mb-4">The easiest way to <span class="text-indigo-500 font-black">center a div!</span> <br>Become popular at work!</p>
 
 ```css
-display: grid;
-place-items: center;
+div {
+  display: grid;
+  place-items: center;
+}
 ```
 
 <Center />
@@ -185,7 +200,10 @@ place-items: center;
 </v-click>
 
 <!--
-I won't be able to convince you! :D
+What I can do for you...
+
+
+[click] ... is perhaps become popular among your colleagues with your cool CSS party tricks!
 -->
 
 ---
@@ -195,6 +213,10 @@ class: text-center bg-gradient-to-r from-black to-indigo-900
 ---
 
 # I avoid it if I can {.inline-block.view-transition-title3}
+
+<!--
+Some of you weren't as hostile, but still hesitant. There's a lot of reasons why that is, but I think frustration with the simplest of stuff definitely can contribute.
+-->
 
 ---
 transition: view-transition
@@ -210,11 +232,13 @@ layout: center
 </v-click>
 
 <!--
-These boxes are a great reason why I think people try to avoid CSS. HOW HARD CAN IT BE to put a couple of items in a row with a little spacing??
+These boxes are probably a great reason why I think people try to avoid CSS. HOW HARD CAN IT BE to put a couple of items in a row like this with a little spacing??
 
-In the olden days, doing layouts was half the reason you used something like Bootstrap or Foundation because achieving this result was more work than you really wanted.
+In the olden days, doing layouts was half the reason you used something like Bootstrap or Foundation
 
-[click] Let's see why this is how it is and how to make your lives simpler!
+[click] because achieving this result was more work than you really wanted.
+
+Let's see why this is how it is and how to make your lives simpler!
 -->
 
 ---
@@ -228,8 +252,8 @@ transition: fade-out
 <div class="grid grid-cols-2">
 <div>
 ```html {all|1,6|2,4|all}{at:1}
-<div class="grid">
-  <div class="item">
+<div class="row">
+  <div class="col">
     <div class="my-component">1</div>
   </div>
   <!-- ... -->
@@ -237,11 +261,11 @@ transition: fade-out
 ```
 
 ```css {all|1-3,12|5-7,11|all}{at:1}
-.grid {
+.row {
   display: flex;
   margin: -2rem;
 
-  .item {
+  .col {
     flex: 1;
     padding: 1rem;
 
@@ -267,7 +291,7 @@ Make sure that margin doesn't break the rest of your layout
 
 [click] Add padding to each item corresponding to half the gap you intend to have
 
-[click] I get it if you found this a little confusing, it is. IF ONLY there was a way to just say "give me some boxes with some gaps!"
+[click] I get it if you found this a little confusing, it is. IF ONLY there was a way to just say "I want to loop out some boxes and put some gap between them!"
 -->
 
 ---
@@ -282,7 +306,6 @@ transition: view-transition
   <div>
 ````md magic-move {at:1}
 ```html
-<!-- Bootstrap example -->
 <div class="row">
   <div class="col">
     <div class="my-component">1</div>
@@ -341,15 +364,14 @@ transition: view-transition
 </div>
 
 <!--
-It would be quite anti-climactic if there wasn't a way and I hope it can get you to start avoiding CSS a little bit less.
+Enter our hero `gap`!
+It basically takes us from this....
 
-Here's an example how Bootstrap does it - and it's the exact same thing! So basically we go from this
-
-[click] to this
+[click] ... to this
 
 Keep using Bootstrap if you want, it's a remarkable tool! I just want to show you how much easier many of the common day-to-day things have gotten.
 
-Whatever you think of Tailwind, I think they've done a terrific job of highlighting how easy something like this is.
+On a side-note, whatever you think of Tailwind, I think they've done a terrific job of highlighting how easy something like this is too.
 -->
 
 ---
@@ -390,13 +412,15 @@ transition: slide-left
 </div>
 
 <!--
-Here's a Material UI-example taken straight from their docs since I know a lot of you work in similar CSS-in-JS projects.
+Here's a Material UI-example taken straight from their docs.
+I wanted to show you a quick example since I know it's very popular and a lot of you have come in contact with it.
 
-In my assignment we've completely omitted layout helpers entirely and gone the vanilla CSS-way where possible.
+In my assignment we've completely omitted layout helpers entirely and gone the vanilla CSS-way wherever possible.
 
 [click] The developers "stuck with styling" are happy because they get to write as few lines of CSS as possible. As the FE maintainer I'm happy to decrease clutter without veering away from standards.
 
-[click] Both approaches are totally valid and well-documented. Gap however is too important to miss, so even though you want to avoid CSS, maybe don't avoid this one!
+[click] Both approaches are totally valid and well-documented.
+`Gap` however is too important to miss, so even though you want to avoid CSS, maybe don't avoid this one!
 -->
 
 ---
@@ -408,12 +432,17 @@ class: text-center bg-gradient-to-r from-black to-indigo-900
 # Ok, I guess {.inline-block.view-transition-title4}
 
 <!--
-Most of you in the thought CSS was tolerable, which is fun, but there can still be a lot of confusions.
+Most of you in the poll thought CSS was tolerable, which is fun, but there can still be a lot of confusions.
 
 I've asked quite a lot of people (and it would be fun to poll this in the slack channel)
 when they use grid and when they use flex.
 
-Almost everyone replied that they've never gotten into grid and just used flex.  (raise of hands, ask questions).
+Almost everyone I asked replied that they've never gotten into grid and just use flex.  (raise of hands, IS THAT TRUE?).
+
+As much as I think `gap` is something you can't miss,
+from now on, I'd like to argue that `grid` is equally something you want to check out!
+
+BUT WHEN DO YOU USE `grid` and when do you use `flex`?
 -->
 
 ---
@@ -509,7 +538,7 @@ Let's replace media/container queries with nifty one-liners!
   }
 
   @media (width > var(--breakpoint-lg)) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -522,7 +551,7 @@ Let's replace media/container queries with nifty one-liners!
   gridTemplateColumns: {
     xs: '1fr',
     md: 'repeat(2, 1fr)',
-    lg: 'repeat(3, 1fr)',
+    lg: 'repeat(4, 1fr)',
   },
 }}>
   {fields.map((item) => item)}
@@ -539,10 +568,50 @@ Let's replace media/container queries with nifty one-liners!
   </select>
 </div>
 
+<!--
+This is not an uncommon exmaple.
+You have a settings page, a simple form, cards, buttons or anything else in a row.
 
+[resize] Then you remember that the component has to be responsive and you start adding media queries to fix that.
+
+Obviously you started checking out `grid` since you heard a lunatic talk about it at a conference at some point
+
+[click] ... you even used `grid` in your Material UI environment and combined that with some cool breakpoint tricks you found in their documentation! You even snuck in a `repeat` function, NICE TOUCH!
+
+BUT WHAT IF we could get rid of all these breakpoints and media queries??
+-->
 
 ---
 transition: none
+---
+
+# I enjoy it!
+Replace media queries with nifty one-liners
+
+
+```css {4}{at:0}
+form {
+  display: grid;
+  gap: 1rem;
+  grid-tempalte-columns: repeat(auto-fit, minmax(30ch, 1fr));
+}
+```
+
+<!--
+With one seemingly complex but simple line of code, you can achieve quite a lot! Let's break it down!
+
+1. `grid-template-colums` property helps us create columns in our grid
+2. the `repeat` function lets us decide
+      - how many times we want to repeat our items and
+      - how large they should be.
+      This time we just want to "keep 'em coming", ie `auto-fit`
+3. As an icing on the cake we use the `minmax` function to tell `grid` that our items in this case can't be less than 30 characters wide but can be as wide as they can get.
+
+Let's see an example of how you can use this!
+-->
+
+---
+transition: fade-out
 ---
 
 # I enjoy it!
@@ -553,55 +622,56 @@ Replace media queries with nifty one-liners
   <BoxGrid/>
 </Suspense>
 
-<v-click at="+2">
+<v-click at="+1">
 <SparksJoy class="absolute top-10 right-20 !justify-end flex items-center"/>
 </v-click>
 </div>
 
+<!--
+The nice thing here is that you can tweak one value here and get the exact layout you want depending on your design requirements.
+
+It's not a solution for every problem like this obviously - some cases require more hand holding, but it's a really nice one-liner that, if you don't like CSS, can save you from writing, and if you do like it, make you feel like a rockstar!
+
+Regardless it will...
+
+
+[click] spark joy!
+-->
 
 ---
-
-# LET ME TELL YOU ABOUT `subgrid`!
-Good ol' React prop drilling
-
-
-```jsx
-<GrandParent lastName={lastName} />
-  /* ... */
-  <Parent lastName={lastName} />
-    /* ... */
-    <Child lastName={lastName} />
-```
-
----
+class: text-center bg-gradient-to-r from-black to-indigo-900
+layout: center
 ---
 # LET ME TELL YOU ABOUT `subgrid`!
 
-<div class="grid grid-cols-2 gap-2">
-```html
-<div class="grandparent">
-  <div class="parent">
-    <div class="child">
-      <!-- ... -->
-    </div>
-  </div>
-</div>
-```
+<!--
+When you add display: grid to a grid container, only the direct children become grid items and can then be placed on the grid you created.
+The children of the children gets displayed in the normal flow.
 
-```css
-.grandparent {
-  display: grid;
-  grid-template-columns: 1fr;
+Why can this be a problem?
+-->
 
-  .parent {
-    display: grid;
-    grid-template-columns: subgrid;
+---
+---
+# LET ME TELL YOU ABOUT `subgrid`!
 
-    .child {
-      /* ... */
-    }
-  }
-}
-```
-</div>
-iv>
+<Cards />
+
+
+<!--
+As you can see here we've hit a dead end.
+[inspect] By looking at the layout here we can clearly see that the nested children here are the culprits!
+
+If we only had a way for the children to adhere to the layout's grid!!!
+
+
+OH WAIT!
+-->
+
+
+---
+class: text-center bg-gradient-to-r from-black to-indigo-900
+layout: center
+---
+
+# Thank you!
