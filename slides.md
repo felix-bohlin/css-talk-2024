@@ -38,11 +38,11 @@ transition: view-transition
 # Felix Bohlin
 <p><span class="view-transition-title">Frontend</span> developer, Devotion</p>
 
-<IconText text="Currently at Coor"><fluent:laptop-24-regular /></IconText>
+<IconText text="Currently at Coor"><fluent:laptop-24-regular /></IconText>r
 <IconText text="Wife, son & two fluffy cats"><fluent:heart-24-regular /></IconText>
 <IconText text="Gullmarsplan & Skuggorna Bakom Oss"><fluent:music-note-2--24-regular /></IconText>
 <v-click>
-<img src="1860.jpg" class="max-w-[75%] mt-4" />
+<img src="/1860.jpg" class="max-w-[75%] mt-4" />
 </v-click>
 
 ---

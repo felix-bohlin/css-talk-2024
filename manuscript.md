@@ -6,20 +6,6 @@ That's why I won't focus on things like custom properties, @layer, @nesting, :is
 
 
 
-## Aspect ratio
-This is how many of us have approached responsive aspect ratio handling.
-In this example we’re applying a 16/9 aspect ratio to an iframe'd youtube video. To get a 16/9 aspect ratio we have to divide 9 / 16 and multiply it by 100 to get this 56.25 seemingly arbitrary percentage value.
-
-This approach works because when we set padding on the y-axis, in a percentage value CSS calculates the padding based on the element’s width. However, as you see, to achieve this we must:
-- wrap our target element with a parent element
-- apply all this other code from Stack overflow (because who remembers this?)
-- and THEN we have a responsive element.
-
-With the aspect-ratio property we can do away with all that and just do this. Now, 16 / 9 is a very standard format, but anything will do really.
-The previous picture had a width of 495px and a width of 280px so if that’s the aspect-ratio I have to work with I can just input that!
-
-And this is how easy you define a square! While the aspect-ratio property in an of itself isn’t a giant leap for mankind, it, and most of the other things I am about to show you are very neat solutions absolving us from having to jump through hoops to achieve the designs we want.
-
 ## Layout bootcamp
 
 ### Kill it with fire
