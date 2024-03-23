@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 
-  const toggleSubgrid = ref(true)
+  const toggleSubgrid = ref(false)
 </script>
 
 <template>
