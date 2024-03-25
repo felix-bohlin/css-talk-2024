@@ -12,7 +12,6 @@ const code = computed(() => `form {
 }
 `)
 
-
 let html = await codeToHtml(code.value, {
   lang: 'css',
   theme: 'dark-plus'
@@ -28,7 +27,9 @@ watchEffect(async () => {
 </script>
 
 <template>
-  <code v-html="html" class="!p-2 bg-gray-100 !text-[12px]" />
+  <Suspense>
+    <code v-html="html" class="!p-2 bg-gray-100 !text-[12px]" />
+  </Suspense>
 
   <div class="flex justify-end my-2.5 flex gap-2">
 
